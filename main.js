@@ -108,7 +108,7 @@ class Letter {
         this.isFound = false
     }
 
-    checkLetterIsFound(guessedAlphabet) {
+    checkLetterIsFound(guessedAlphabet = '') {
         if (guessedAlphabet === this.value) {
             this.isFound = true
         }
