@@ -47,8 +47,8 @@ class Hangman {
         const counterEl = document.querySelector('.counter')
         guessedAlphabetForm.onsubmit = (e) => {
             e.preventDefault()
-            this.randomWord.checkLetterIsFound(guessedAlphabetEl.value)
-            this.guessedAlphabets.push(guessedAlphabetEl.value)
+            this.randomWord.checkLetterIsFound(guessedAlphabetEl.value.toLowerCase())
+            this.guessedAlphabets.push(guessedAlphabetEl.value.toLowerCase())
             displayEl.innerHTML = this.randomWord.display()
             guessedAlphabetEl.value = ''
             this.counter++;
