@@ -16,7 +16,6 @@ class Hangman {
         this.maxNoOfGuesses = maxNoOfGuesses
         this.randomWord = ''
         this.guessedAlphabets = []
-        this.isFound = false
         this.counter = 0
     }
 
@@ -26,7 +25,6 @@ class Hangman {
     }
 
     resetGame() {
-        this.isFound = false
         this.randomWord = ''
         this.guessedAlphabets = []
         this.counter = 0
