@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Hangman</title>
+</head>
+
+<body>
+    <h1>Hangman</h1>
+    <form id="alphabet-box">
+        <div>Please fill in alphabet A-Z or a-z</div>
+        <label for="guess-alphabet">Your Guess</label>
+        <input type="text" name="guess-alphabet" id="guess-alphabet" required maxlength="1" minlength="1" pattern="[A-Za-z]" />
+    </form>
+    <div>
+        <h3 class="display"></h3>
+    </div>
+    <div>
+        <h3>Your Previous Guesses</h3>
+        <h2 class="previous-guesses"></h2>
+    </div>
+    <script src="main.js "></script>
+</body>
+
+</html>
