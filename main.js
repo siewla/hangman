@@ -30,6 +30,11 @@ class Hangman {
         this.randomWord = ''
         this.guessedAlphabets = []
         this.counter = 0
+        this.startGame()
+        const previousGuessesEl = document.querySelector('.previous-guesses')
+        const counterEl = document.querySelector('.counter')
+        previousGuessesEl.innerHTML = ''
+        counterEl.innerHTML = ''
     }
 
     startGame() {
@@ -39,6 +44,7 @@ class Hangman {
         const guessedAlphabetForm = document.querySelector('#alphabet-box')
         const guessedAlphabetEl = document.querySelector('#guess-alphabet')
         const previousGuessesEl = document.querySelector('.previous-guesses')
+        const counterEl = document.querySelector('.counter')
         guessedAlphabetForm.onsubmit = (e) => {
             e.preventDefault()
             this.randomWord.checkLetterIsFound(guessedAlphabetEl.value)
@@ -46,10 +52,11 @@ class Hangman {
             displayEl.innerHTML = this.randomWord.display()
             guessedAlphabetEl.value = ''
             this.counter++;
+            counterEl.innerHTML = `${this.counter}/${this.maxNoOfGuesses}`
             previousGuessesEl.innerHTML = this.guessedAlphabets.join(' ')
             const wordIsFound = this.randomWord.wordIsFound()
 
-            if (this.counter > this.maxNoOfGuesses && !wordIsFound) {
+            if (this.counter >= this.maxNoOfGuesses && !wordIsFound) {
                 this.gameOver()
             }
 
@@ -60,12 +67,12 @@ class Hangman {
     }
 
     gameOver() {
-        alert('you lose')
+        alert(`you lose, the word is ${this.randomWord.value}`)
         this.resetGame()
     }
 
     winGame() {
-        alert('you win')
+        alert(`you win, the word is ${this.randomWord.value}`)
         this.resetGame()
     }
 }
